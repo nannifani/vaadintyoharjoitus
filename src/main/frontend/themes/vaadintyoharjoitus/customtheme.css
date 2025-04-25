@@ -1,0 +1,57 @@
+/* Apply styles to the overall login container */
+vaadin-login-overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Styling the login box itself */
+vaadin-login-overlay .login-box {
+  background-color: #fff;
+  padding: 2rem 3rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Heading inside the login box */
+vaadin-login-overlay .login-box h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #3f51b5;
+  text-align: center;
+}
+
+/* Style for text fields (username and password) */
+vaadin-login-overlay .login-box vaadin-text-field,
+vaadin-login-overlay .login-box vaadin-password-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+/* Style for the login button */
+vaadin-login-overlay .login-box vaadin-button {
+  background-color: #3f51b5;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+/* Hover effect for the login button */
+vaadin-login-overlay .login-box vaadin-button:hover {
+  background-color: #303f9f;
+}
+
+/* Remove any default styles that might interfere */
+vaadin-login-overlay ::part(input-field) {
+  background-color: transparent !important;
+}
+
+vaadin-login-overlay ::part(label) {
+  color: #3f51b5 !important;
+}

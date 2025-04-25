@@ -1,2 +1,203 @@
-@import url('./main-layout.css');
-@import url('./views/gridwith-filters-view.css');
+:root {
+  --color-primary: #0077cc;
+  --color-secondary: #00bfa5;
+  --color-accent: #ffd54f;
+  --color-background: #f5f7fa;
+  --color-surface: #ffffff;
+  --color-error: #e53935;
+
+  --font-family: 'Segoe UI', Roboto, sans-serif;
+  --font-size-base: 16px;
+  --font-size-heading: 1.5rem;
+  --font-size-subheading: 1.25rem;
+  --font-size-small: 0.875rem;
+
+  --radius-base: 0.5rem;
+  --radius-large: 1rem;
+  --shadow-light: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --shadow-dark: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-background);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 1rem 0 0.5rem;
+}
+
+vaadin-button {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-light);
+  font-size: var(--font-size-base);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+vaadin-button:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+
+vaadin-button:active {
+  background-color: #003e75;
+  transform: translateY(2px);
+}
+
+vaadin-button[theme="primary"] {
+  background-color: var(--color-primary);
+  border: none;
+}
+
+vaadin-grid {
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-light);
+  background-color: var(--color-surface);
+  font-size: var(--font-size-base);
+  padding: 1rem;
+}
+
+vaadin-text-field,
+vaadin-password-field,
+vaadin-combo-box,
+vaadin-select,
+vaadin-date-picker {
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-light);
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+
+.alert-error {
+  background-color: var(--color-error);
+  color: white;
+  padding: 1rem;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-small);
+  box-shadow: var(--shadow-medium);
+}
+
+
+.section {
+  padding: 2rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
+  margin-bottom: 2rem;
+}
+
+
+.login-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #3f51b5, #5c6bc0);
+  color: white;
+  font-family: 'Inter', sans-serif;
+}
+
+.login-box {
+  background-color: white;
+  color: #333;
+  padding: 2rem 3rem;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.login-box h1 {
+  margin: 0 0 1.5rem;
+  font-size: 1.75rem;
+  color: #3f51b5;
+  text-align: center;
+}
+
+.login-box vaadin-text-field,
+.login-box vaadin-password-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: var(--font-size-base);
+}
+
+.login-box vaadin-button {
+  background-color: #3f51b5;
+  color: white;
+  width: 100%;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-size: var(--font-size-base);
+}
+
+.login-box vaadin-button:hover {
+  background-color: #303f9f;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.login-box-enter {
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.login-box-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.login-box vaadin-login-overlay-wrapper {
+  box-shadow: none;
+}
+
+.login-box .error-message {
+  color: red;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+
+vaadin-text-field::part(input),
+vaadin-password-field::part(input) {
+  font-size: 1rem;
+  padding: 0.8rem;
+  background-color: #f5f7fa;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: var(--shadow-light);
+}
+
+vaadin-text-field::part(input):focus,
+vaadin-password-field::part(input):focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 5px rgba(0, 119, 204, 0.5);
+}
+
+@media (max-width: 768px) {
+  .login-view {
+    background: linear-gradient(135deg, #3f51b5, #00bfa5);
+  }
+
+  .login-box {
+    width: 90%;
+    max-width: none;
+    padding: 1.5rem;
+  }
+}
